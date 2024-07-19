@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora atual</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        #relogio {
+            font-size: 48px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="relogio"></div>
+
+    <script>
+        function atualizarHora() {
+            const dataAtual = new Date();
+            const horas = dataAtual.getHours().toString().padStart(2, "0");
+            const minutos = dataAtual.getMinutes().toString().padStart(2, "0");
+            const segundos = dataAtual.getSeconds().toString().padStart(2, "0");
+
+            const horaFormatada = `${horas}:${minutos}:${segundos}`;
+            document.getElementById("relogio").innerHTML = horaFormatada;
+        }
+
+        atualizarHora();
+        setInterval(atualizarHora, 1000);
+    </script>
+</body>
+</html>
